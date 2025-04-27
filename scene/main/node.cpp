@@ -2015,6 +2015,11 @@ Node *Node::find_parent(const String &p_pattern) const {
 	return nullptr;
 }
 
+Node *Node::instantiate_node() {
+        ERR_PRINT("Not Implemented.");
+	return nullptr;
+}
+
 Window *Node::get_window() const {
 	ERR_THREAD_GUARD_V(nullptr);
 	Viewport *vp = get_viewport();
@@ -3701,6 +3706,8 @@ void Node::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("set_auto_translate_mode", "mode"), &Node::set_auto_translate_mode);
 	ClassDB::bind_method(D_METHOD("get_auto_translate_mode"), &Node::get_auto_translate_mode);
 	ClassDB::bind_method(D_METHOD("set_translation_domain_inherited"), &Node::set_translation_domain_inherited);
+
+	ClassDB::bind_static_method(D_METHOD("instantiate_node"), &Node::instantiate_node);
 
 	ClassDB::bind_method(D_METHOD("get_window"), &Node::get_window);
 	ClassDB::bind_method(D_METHOD("get_last_exclusive_window"), &Node::get_last_exclusive_window);

@@ -7,17 +7,15 @@ sudo dnf -y install dotnet-sdk-9.0 python3
 podman build --tag godotbuild .
 
 # run the container
+sudo rm -rf bin
 mkdir bin
 sudo chmod 777 bin
-podman run --rm -v ./bin:/mnt/bin godotbuild:latest
+podman run --rm -v $(pwd)/bin:/mnt/bin $(pwd)/modules/mono/glue:/mnt/glue godotbuild:latest
 
 # install this version of the killer carrot godot fork as a nuget package
-rm ~/MyLocalNugetSource/*
+sudo rm -rf ~/MyLocalNugetSource
 mkdir ~/MyLocalNugetSource
 dotnet nuget add source ~/MyLocalNugetSource --name MyLocalNugetSource
-
-# Generate glue sources
-bin/godot.linuxbsd.editor.x86_64.mono --headless --generate-mono-glue modules/mono/glue
 
 # Generate binaries
 sudo python3 modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin --push-nupkgs-local ~/MyLocalNugetSource --godot-platform=linuxbsd

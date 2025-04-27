@@ -478,6 +478,8 @@ public:
 	Node *get_parent() const;
 	Node *find_parent(const String &p_pattern) const;
 
+        static Node *instantiate_node();
+
 	Window *get_window() const;
 	Window *get_last_exclusive_window() const;
 

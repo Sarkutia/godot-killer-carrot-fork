@@ -25,4 +25,4 @@ COPY . /godot-src
 
 RUN sudo /godot-src/build.sh
 
-CMD ["bash", "-c", "rm -rf /mnt/bin/* && cp -r /godot-src/bin/* /mnt/bin"]
+ENTRYPOINT ["/godot-src/entrypoint.sh"]
