@@ -558,6 +558,12 @@
 				Returns the node's closest [Viewport] ancestor, if the node is inside the tree. Otherwise, returns [code]null[/code].
 			</description>
 		</method>
+		<method name="instantiate_node" qualifiers="static">
+			<return type="Node" />
+			<description>
+				Testing123
+			</description>
+		</method>		
 		<method name="get_window" qualifiers="const">
 			<return type="Window" />
 			<description>

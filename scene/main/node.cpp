@@ -3707,7 +3707,7 @@ void Node::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_auto_translate_mode"), &Node::get_auto_translate_mode);
 	ClassDB::bind_method(D_METHOD("set_translation_domain_inherited"), &Node::set_translation_domain_inherited);
 
-	ClassDB::bind_static_method(D_METHOD("instantiate_node"), &Node::instantiate_node);
+	ClassDB::bind_static_method("Node", D_METHOD("instantiate_node"), &Node::instantiate_node);
 
 	ClassDB::bind_method(D_METHOD("get_window"), &Node::get_window);
 	ClassDB::bind_method(D_METHOD("get_last_exclusive_window"), &Node::get_last_exclusive_window);

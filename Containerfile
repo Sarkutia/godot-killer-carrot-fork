@@ -25,4 +25,7 @@ COPY . /godot-src
 
 RUN sudo /godot-src/build.sh
 
+RUN chmod +x /godot-src/entrypoint.sh
+USER root
+
 ENTRYPOINT ["/godot-src/entrypoint.sh"]
