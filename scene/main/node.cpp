@@ -2015,11 +2015,6 @@ Node *Node::find_parent(const String &p_pattern) const {
 	return nullptr;
 }
 
-Node *Node::instantiate_node() {
-        ERR_PRINT("Not Implemented.");
-	return nullptr;
-}
-
 Window *Node::get_window() const {
 	ERR_THREAD_GUARD_V(nullptr);
 	Viewport *vp = get_viewport();
@@ -3338,6 +3333,11 @@ static void _print_orphan_nodes_routine(Object *p_obj) {
 }
 #endif // DEBUG_ENABLED
 
+Node *Node::instantiate_node() {
+        ERR_PRINT("Not Implemented.");
+	return nullptr;
+}
+
 void Node::print_orphan_nodes() {
 #ifdef DEBUG_ENABLED
 	// Make sure it's empty.
@@ -3614,6 +3614,7 @@ void Node::_bind_methods() {
 	GLOBAL_DEF(PropertyInfo(Variant::INT, "editor/naming/node_name_num_separator", PROPERTY_HINT_ENUM, "None,Space,Underscore,Dash"), 0);
 	GLOBAL_DEF(PropertyInfo(Variant::INT, "editor/naming/node_name_casing", PROPERTY_HINT_ENUM, "PascalCase,camelCase,snake_case"), NAME_CASING_PASCAL_CASE);
 
+	ClassDB::bind_static_method("Node", D_METHOD("instantiate_node"), &Node::instantiate_node);
 	ClassDB::bind_static_method("Node", D_METHOD("print_orphan_nodes"), &Node::print_orphan_nodes);
 	ClassDB::bind_method(D_METHOD("add_sibling", "sibling", "force_readable_name"), &Node::add_sibling, DEFVAL(false));
 
@@ -3706,8 +3707,6 @@ void Node::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("set_auto_translate_mode", "mode"), &Node::set_auto_translate_mode);
 	ClassDB::bind_method(D_METHOD("get_auto_translate_mode"), &Node::get_auto_translate_mode);
 	ClassDB::bind_method(D_METHOD("set_translation_domain_inherited"), &Node::set_translation_domain_inherited);
-
-	ClassDB::bind_static_method("Node", D_METHOD("instantiate_node"), &Node::instantiate_node);
 
 	ClassDB::bind_method(D_METHOD("get_window"), &Node::get_window);
 	ClassDB::bind_method(D_METHOD("get_last_exclusive_window"), &Node::get_last_exclusive_window);

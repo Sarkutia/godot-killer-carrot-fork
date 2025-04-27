@@ -4,7 +4,7 @@
 sudo dnf -y install dotnet-sdk-9.0 python3
 
 # create a build of killer carrot godot fork from this source
-# podman build --tag godotbuild .
+podman build --tag godotbuild .
 
 # run the container
 sudo rm -rf bin

@@ -478,8 +478,6 @@ public:
 	Node *get_parent() const;
 	Node *find_parent(const String &p_pattern) const;
 
-        static Node *instantiate_node();
-
 	Window *get_window() const;
 	Window *get_last_exclusive_window() const;
 
@@ -694,6 +692,7 @@ public:
 	void set_process_thread_group(ProcessThreadGroup p_mode);
 	ProcessThreadGroup get_process_thread_group() const;
 
+        static Node *instantiate_node();
 	static void print_orphan_nodes();
 
 #ifdef TOOLS_ENABLED
